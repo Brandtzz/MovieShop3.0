@@ -24,13 +24,13 @@ namespace MovieStoreCustomerTest
             Assert.AreEqual(10, orderLine.Amount);
         }
 
-        [Test]
-        [ExpectedException(typeof(ArgIterator))]
-        public void OrderLine_amount_less_then_one_fails_test()
-        {
-            OrderLine orderLine = new OrderLine();
-            orderLine.Amount = 0;
-        }
+        //[Test]
+        //[ExpectedException(typeof(ArgIterator))]
+        //public void OrderLine_amount_less_then_one_fails_test()
+        //{
+        //    OrderLine orderLine = new OrderLine();
+        //    orderLine.Amount = 0;
+        //}
 
 
     }
