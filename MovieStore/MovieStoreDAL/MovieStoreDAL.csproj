@@ -66,6 +66,7 @@
     <Compile Include="CustomerRepository.cs" />
     <Compile Include="DALFacade.cs" />
     <Compile Include="DbInitializer.cs" />
+    <Compile Include="CurencyConverter.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="DTO\Movie.cs" />
     <Compile Include="MovieRepository.cs" />
