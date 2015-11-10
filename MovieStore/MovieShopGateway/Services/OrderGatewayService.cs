@@ -15,7 +15,7 @@ namespace MovieShopGateway.Services
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
-                    client.GetAsync("http://localhost:4835/api/movie/").Result;
+                    client.GetAsync("http://localhost:4835/api/order/").Result;
                 return response.Content.ReadAsAsync<IEnumerable<Order>>().Result;
             }
         }
@@ -25,7 +25,7 @@ namespace MovieShopGateway.Services
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
-                    client.PostAsJsonAsync("http://localhost:4835/api/movie/", order).Result;
+                    client.PostAsJsonAsync("http://localhost:4835/api/order/", order).Result;
                 return response.Content.ReadAsAsync<Order>().Result;
             }
         }
@@ -35,7 +35,7 @@ namespace MovieShopGateway.Services
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
-                    client.DeleteAsync("http://localhost:4835/api/movie/").Result;
+                    client.DeleteAsync("http://localhost:4835/api/order/").Result;
                 return response.Content.ReadAsAsync<Order>().Result;
             }
         }
@@ -44,7 +44,7 @@ namespace MovieShopGateway.Services
         {
             using (var client = new HttpClient())
             {
-                HttpResponseMessage response = client.PostAsJsonAsync("http://localhost:4835/api/movie/", order).Result;
+                HttpResponseMessage response = client.PostAsJsonAsync("http://localhost:4835/api/order/", order).Result;
                 return response.Content.ReadAsAsync<Order>().Result;
             }
         }
