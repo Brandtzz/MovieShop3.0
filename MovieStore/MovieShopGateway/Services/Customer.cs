@@ -44,10 +44,10 @@ namespace MovieShopGateway.Services
         {
             using (var client = new HttpClient())
             {
-                HttpResponseMessage response = client.PostAsJsonAsync("http://localhost:4835/api/movie/", movie).Result;
+                HttpResponseMessage response = client.PostAsJsonAsync("http://localhost:4835/api/movie/", customer).Result;
                 return response.Content.ReadAsAsync<Customer>().Result;
             }
         }
     }
 }
-}
+
