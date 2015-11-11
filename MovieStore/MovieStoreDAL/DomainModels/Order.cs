@@ -20,7 +20,7 @@ namespace MovieStoreDAL
 
        public double GetOrderSum()
        {
-           return OrderLines.Sum(orderLine => orderLine.GetOrdeLineSum());
+           return OrderLines.Sum(orderLine => orderLine.GetOrderLineSum());
        }
     }
 }

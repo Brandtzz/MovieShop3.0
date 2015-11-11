@@ -56,7 +56,7 @@ namespace MovieStoreUserUI.Models
             double sum = 0;
             foreach (var item in orderLines)
             {
-                sum += item.GetOrdeLineSum();
+                sum += item.GetOrderLineSum();
             }
             return sum;
         }

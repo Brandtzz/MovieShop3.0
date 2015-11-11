@@ -13,16 +13,12 @@ namespace MovieStoreDTO
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        public string Title { get; set; }
+        public string FirstName { get; set; }
         [DataMember]
-        public DateTime Year { get; set; }
+        public string LastName { get; set; }
         [DataMember]
-        public string ImageUrl { get; set; }
+        public AddressDto Address { get; set; }
         [DataMember]
-        public double Price { get; set; }
-        [DataMember]
-        public string TrailerUrl { get; set; }
-        [DataMember]
-        public string Genre { get; set; }
+        public string Email { get; set; }
     }
 }

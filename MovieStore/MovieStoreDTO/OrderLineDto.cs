@@ -1,17 +1,18 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace MovieStoreDAL
-
+namespace MovieStoreDTO
 {
-    public class OrderLine
+    [DataContract(IsReference = true)]
+    public class OrderLineDto
     {
         private int amount;
-        public OrderLine()
-        {
-        }
 
+        [DataMember]
         public int Amount
         {
             get { return amount; }
@@ -22,20 +23,16 @@ namespace MovieStoreDAL
                     throw new ArgumentException("Amount must be above 1");
                 }
                 amount = value;
-
             }
-
         }
-        [Column(Order = 0), Key, ForeignKey("Movie")]
+        [DataMember]
         public int MovieId { get; set; }
-
-        public virtual Movie Movie { get; set; }
-
-        [Column(Order = 1), Key, ForeignKey("Order")]
+        [DataMember]
+        public MovieDto Movie { get; set; }
+        [DataMember]
         public int OrderId { get; set; }
-
-        public virtual Order Order { get; set; }
-
+        [DataMember]
+        public OrderDto Order { get; set; }
         public double GetOrderLineSum()
         {
             return amount*Movie.Price;
