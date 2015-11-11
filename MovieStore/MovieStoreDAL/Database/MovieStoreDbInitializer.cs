@@ -17,7 +17,7 @@ namespace MovieStoreDAL
             OrderLine orderline1 = new OrderLine() { Movie = movie, Amount = 12 };
             Customer customer = new Customer
             {
-                FirstName = "Karl", LastName = "Karlsen", Address = new Address() { Streetname = "Østergade"  },
+                FirstName = "Karl", LastName = "Karlsen", Address = new Address() { StreetName = "Østergade"  },
                 Email = "andy@andy"
             };
             Order order = new Order { Date = DateTime.Now, OrderLines = new List<OrderLine>() {orderline,orderline1 }, Customer = customer };

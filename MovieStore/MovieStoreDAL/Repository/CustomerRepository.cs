@@ -29,7 +29,7 @@ namespace MovieStoreDAL
             var customerAddress = (from a in db.Addresses
                                   where a.Id == entity.Address.Id
                                   select a).FirstOrDefault();
-            customerAddress.Streetname = entity.Address.Streetname;
+            customerAddress.StreetName = entity.Address.StreetName;
             customerAddress.ZipCode = entity.Address.ZipCode;
             customerAddress.City = entity.Address.City;
 
