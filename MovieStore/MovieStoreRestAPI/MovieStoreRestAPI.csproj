@@ -214,7 +214,16 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MovieStoreDAL\MovieStoreDAL.csproj">
+      <Project>{93f41840-309d-445f-8010-81c1772a1432}</Project>
+      <Name>MovieStoreDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MovieStoreDTO\MovieStoreDTO.csproj">
+      <Project>{725e8bd8-ff5e-4694-be9e-d36c94360d4e}</Project>
+      <Name>MovieStoreDTO</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
