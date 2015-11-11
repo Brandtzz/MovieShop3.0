@@ -59,20 +59,20 @@
   <ItemGroup>
     <Compile Include="Abstarct\IService.cs" />
     <Compile Include="Abstarct\ServiceGroup.cs" />
-    <Compile Include="DTO\Address.cs" />
     <Compile Include="Concrete\SampleService.cs" />
     <Compile Include="Concrete\Service.cs" />
-    <Compile Include="DTO\Customer.cs" />
+    <Compile Include="DomainModels\Address.cs" />
+    <Compile Include="DomainModels\Customer.cs" />
+    <Compile Include="DomainModels\Movie.cs" />
+    <Compile Include="DomainModels\Order.cs" />
     <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="DALFacade.cs" />
     <Compile Include="Database\DbInitializer.cs" />
     <Compile Include="Bll\CurencyConverter.cs" />
     <Compile Include="Repository\IRepository.cs" />
-    <Compile Include="DTO\Movie.cs" />
     <Compile Include="Repository\MovieRepository.cs" />
     <Compile Include="Database\MovieStoreDbContext.cs" />
     <Compile Include="Database\MovieStoreDbInitializer.cs" />
-    <Compile Include="DTO\Order.cs" />
     <Compile Include="Bll\OrderLine.cs" />
     <Compile Include="Repository\OrderRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
