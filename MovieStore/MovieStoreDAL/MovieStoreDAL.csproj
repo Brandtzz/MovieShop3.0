@@ -63,24 +63,25 @@
     <Compile Include="Concrete\SampleService.cs" />
     <Compile Include="Concrete\Service.cs" />
     <Compile Include="DTO\Customer.cs" />
-    <Compile Include="CustomerRepository.cs" />
+    <Compile Include="Repository\CustomerRepository.cs" />
     <Compile Include="DALFacade.cs" />
-    <Compile Include="DbInitializer.cs" />
-    <Compile Include="CurencyConverter.cs" />
-    <Compile Include="IRepository.cs" />
+    <Compile Include="Database\DbInitializer.cs" />
+    <Compile Include="Bll\CurencyConverter.cs" />
+    <Compile Include="Repository\IRepository.cs" />
     <Compile Include="DTO\Movie.cs" />
-    <Compile Include="MovieRepository.cs" />
-    <Compile Include="MovieStoreDbContext.cs" />
-    <Compile Include="MovieStoreDbInitializer.cs" />
+    <Compile Include="Repository\MovieRepository.cs" />
+    <Compile Include="Database\MovieStoreDbContext.cs" />
+    <Compile Include="Database\MovieStoreDbInitializer.cs" />
     <Compile Include="DTO\Order.cs" />
-    <Compile Include="OrderLine.cs" />
-    <Compile Include="OrderRepository.cs" />
+    <Compile Include="Bll\OrderLine.cs" />
+    <Compile Include="Repository\OrderRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
