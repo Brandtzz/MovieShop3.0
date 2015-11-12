@@ -1,6 +1,0 @@
-namespace MovieStoreRestAPI.Areas.HelpPage.ModelDescriptions
-{
-    public class SimpleTypeModelDescription : ModelDescription
-    {
-    }
-}
