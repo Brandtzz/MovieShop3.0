@@ -3,18 +3,19 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+using MovieShopGateway;
 using MovieStoreDAL;
 
 namespace MovieStoreUI.Controllers
 {
     public class OrdersController : Controller
     {
-        private MovieStoreDbContext db = new MovieStoreDbContext();
+        Facade facade = new Facade();
 
         // GET: Orders
         public ActionResult Index()
         {
-            var orders = db.Orders.Include(o => o.Customer).Include(o=>o.OrderLines);
+            var orders = facade.GetOrderGatewayService().ReadAll().Include(o => o.Customer).Include(o=>o.OrderLines);
             List<Order> ordersInList = orders.ToList();
             return View(ordersInList);
         }
@@ -26,7 +27,7 @@ namespace MovieStoreUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
+            facade.GetOrderGatewayService().Read(id);
             if (order == null)
             {
                 return HttpNotFound();
@@ -43,7 +44,7 @@ namespace MovieStoreUI.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Order order = db.Orders.Find(id);
+            facade.GetOrderGatewayService().Read(id);
             if (order == null)
             {
                 return HttpNotFound();
@@ -56,19 +57,11 @@ namespace MovieStoreUI.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Order order = db.Orders.Find(id);
-            db.Orders.Remove(order);
-            db.SaveChanges();
+            facade.GetOrderGatewayService().Delete(id);
+            
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+
     }
 }

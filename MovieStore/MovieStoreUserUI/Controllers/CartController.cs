@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using MovieStoreDAL;
 
-namespace MovieStoreAdminUI.Controllers
+namespace MovieStoreUserUI.Controllers
 {
     public class CartController : Controller
     {

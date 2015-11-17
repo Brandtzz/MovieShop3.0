@@ -9,7 +9,7 @@ using MovieStoreUserUI.Models;
 using IModelBinder = System.Web.Mvc.IModelBinder;
 using ModelBindingContext = System.Web.ModelBinding.ModelBindingContext;
 
-namespace MovieStoreAdminUI.Infrastructure.Binders
+namespace MovieStoreUserUI.Infrastructure.Binders
 {
     public class CartModelBinder : IModelBinder
     {

@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MovieShopGateway;
 using MovieStoreDAL;
 
-namespace MovieStoreAdminUI.Controllers
+namespace MovieStoreUserUI.Controllers
 {
         public class CustomerController : Controller
         {
-            //private CustomerRepository cr = new CustomerRepository();
-            private DALFacade df = new DALFacade();
+            private Facade facade = new Facade();
+            
 
 
             // GET: Customers/Create
@@ -25,7 +26,7 @@ namespace MovieStoreAdminUI.Controllers
             {
                 try
                 {
-                    df._customersRepository.Add(customer);
+                    facade.GetCustomerGatewayService().Add(customer);
 
                     return View("CheckEmail");
                 }
@@ -38,7 +39,7 @@ namespace MovieStoreAdminUI.Controllers
             // GET: Customers/Edit/5
             public ActionResult Edit(int id)
             {
-                Customer customer = df._customersRepository.Get(id);
+                facade.GetCustomerGatewayService().Read(id);
                 return View(customer);
             }
 
@@ -48,7 +49,7 @@ namespace MovieStoreAdminUI.Controllers
             {
                 try
                 {
-                    df._customersRepository.Edit(customer);
+                    facade.GetCustomerGatewayService().Update(customer.id);
 
                     return RedirectToAction("Index");
                 }
@@ -65,7 +66,7 @@ namespace MovieStoreAdminUI.Controllers
         [HttpPost]
         public ActionResult CheckEmail(string email)
         {
-            Customer customer = df._customersRepository.GetAll().FirstOrDefault(c => c.Email == email);
+            facade.GetCustomerGatewayService().ReadAll().FirstOrDefault(c => c.Email == email);
             if (customer != null)
             {
                 ViewBag.Exist = "Customer with email is exist";

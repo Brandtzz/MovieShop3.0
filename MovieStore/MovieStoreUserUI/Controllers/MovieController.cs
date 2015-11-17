@@ -3,30 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MovieShopGateway;
 using MovieStoreDAL;
 using MovieStoreUserUI.Models;
 
-namespace MovieStoreAdminUI.Controllers
+namespace MovieStoreUserUI.Controllers
 {
     public class MovieController : Controller
     {
-        DALFacade facade = new DALFacade();
+        Facade facade = new Facade();
+
         // GET: Movie
         public ActionResult Index()
         {
-            return View(facade._moviesRepository.GetAll());
+            return View(facade.GetMovieGatewayService().ReadAll());
         }
 
         // GET: Movie/Details/5
         public ActionResult Details(int id)
         {
-            Movie movie = facade._moviesRepository.Get(id);
+            facade.GetMovieGatewayService().Read(id);
             return View(movie);
         }
 
         public ActionResult AddToCart(int id)
         {
-            var movie = facade._moviesRepository.Get(id);
+            var movie = facade.GetMovieGatewayService().Read(id);
             var cart = GetCart();
             cart.AddOrderLine(movie, 1);
 

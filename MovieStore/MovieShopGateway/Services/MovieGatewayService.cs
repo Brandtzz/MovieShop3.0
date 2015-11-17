@@ -16,7 +16,7 @@ namespace MovieShopGateway.Services
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response = 
-                    client.GetAsync("http://localhost:4835/api/movie/").Result;
+                    client.GetAsync("http://localhost:17883/api/Movie/").Result;
                 return response.Content.ReadAsAsync<IEnumerable<Movie>>().Result;
             }
         }
@@ -26,17 +26,17 @@ namespace MovieShopGateway.Services
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
-                    client.PostAsJsonAsync("http://localhost:4835/api/movie/", movie).Result;
+                    client.PostAsJsonAsync("http://localhost:17883/api/Movie/", movie).Result;
                 return response.Content.ReadAsAsync<Movie>().Result;
             }
         }
 
-        public Movie Delete(Movie movie)
+        public Movie Delete(int id)
         {
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
-                    client.DeleteAsync("http://localhost:4835/api/movie/").Result;
+                    client.DeleteAsync("http://localhost:17883/api/Movie/" + id.ToString()).Result;
                 return response.Content.ReadAsAsync<Movie>().Result;
             }
         }
@@ -45,7 +45,17 @@ namespace MovieShopGateway.Services
         {
             using (var client = new HttpClient())
             {
-                HttpResponseMessage response = client.PostAsJsonAsync("http://localhost:4835/api/movie/", movie).Result;
+                HttpResponseMessage response = client.PostAsJsonAsync("http://localhost:17883/api/Movie/", movie.Id).Result;
+                return response.Content.ReadAsAsync<Movie>().Result;
+            }
+        }
+
+        public Movie Read(int id)
+        {
+            using (var Client = new HttpClient())
+            {
+                HttpResponseMessage response =
+                    Client.GetAsync("http://localhost:17883/api/Movie/" + id.ToString()).Result;
                 return response.Content.ReadAsAsync<Movie>().Result;
             }
         }

@@ -7,11 +7,22 @@ using MovieShopGateway.Services;
 
 namespace MovieShopGateway
 {
-    class Facade
+   public class Facade
     {
-        public MovieGatewayService getMovieGateway()
+        public MovieGatewayService GetMovieGatewayService()
         {
             return new MovieGatewayService();
         }
+
+        public CustomerGatewayService GetCustomerGatewayService()
+        {
+            return new CustomerGatewayService();
+        }
+
+        public OrderGatewayService GetOrderGatewayService()
+        {
+            return new OrderGatewayService();
+        }
     }
+
 }

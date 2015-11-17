@@ -127,7 +127,7 @@ window.Modernizr = (function( window, document, undefined ) {
           fakeBody = body || document.createElement('body');
 
       if ( parseInt(nodes, 10) ) {
-          // In order not to give false positives we create a node for each test
+          // In OrderDTO not to give false positives we create a node for each test
           // This also allows the method to scale for unspecified uses
           while ( nodes-- ) {
               node = document.createElement('div');
@@ -450,7 +450,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     // webk.it/70117 is tracking a legit WebGL feature detect proposal
 
-    // We do a soft detect which may false positive in order to avoid
+    // We do a soft detect which may false positive in OrderDTO to avoid
     // an expensive context creation: bugzil.la/732441
 
     tests['webgl'] = function() {

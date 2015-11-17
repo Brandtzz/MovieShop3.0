@@ -1,28 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations.Design;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MovieStoreDAL;
+using MovieShopGateway;
 
-namespace MovieStoreAdminUI.Controllers
+namespace MovieStoreUserUI.Controllers
 {
     public class CustomersController : Controller
     {
         //private CustomerRepository cr = new CustomerRepository();
-        private DALFacade df = new DALFacade();
+        private Facade facade = new Facade();
+        
+            
 
         // GET: Customers
         public ActionResult Index()
         {
-            IEnumerable<Customer> customer = df._customersRepository.GetAll();
+            IEnumerable<Customer> customer = facade.GetCustomerGatewayService().ReadAll();
             return View(customer);
         }
 
         // GET: Customers/Details/5
         public ActionResult Details(int id)
         {
-            var customer = df._customersRepository.Get(id);
+            var customer = facade.GetCustomerGatewayService().Read(id);
             return View(customer);
         }
 
@@ -38,7 +41,8 @@ namespace MovieStoreAdminUI.Controllers
         {
             try
             {
-                df._customersRepository.Add(customer);
+                facade.GetCustomerGatewayService().Add(customer);
+                
 
                 return RedirectToAction("Index");
             }
@@ -51,7 +55,7 @@ namespace MovieStoreAdminUI.Controllers
         // GET: Customers/Edit/5
         public ActionResult Edit(int id)
         {
-            Customer customer = df._customersRepository.Get(id);
+            facade.GetCustomerGatewayService().Read(id);
             return View(customer);
         }
 
@@ -61,7 +65,7 @@ namespace MovieStoreAdminUI.Controllers
         {
             try
             {
-                df._customersRepository.Edit(customer);
+                facade.GetCustomerGatewayService().Update(customer.id);
 
                 return RedirectToAction("Index");
             }
@@ -74,7 +78,7 @@ namespace MovieStoreAdminUI.Controllers
         // GET: Customers/Delete/5
         public ActionResult Delete(int id)
         {
-           Customer customer = df._customersRepository.Get(id);
+            facade.GetCustomerGatewayService().Read(id);
             return View(customer);
         }
 
@@ -84,8 +88,7 @@ namespace MovieStoreAdminUI.Controllers
         {
             try
             {
-                Customer customer = df._customersRepository.Get(id);
-                df._customersRepository.Remove(id);
+                facade.GetCustomerGatewayService().Delete(id);
                 return RedirectToAction("Index");
             }
             catch

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using MovieShopGateway;
 using MovieStoreDAL;
 
 
@@ -14,13 +15,13 @@ namespace MovieStoreUI.Controllers
     public class MoviesController : Controller
     {
         
-        private DALFacade df = new DALFacade();
+        Facade facade = new Facade();
         
 
         // GET: Movies
         public ActionResult Index()
         {
-            var movies = df._moviesRepository.GetAll();
+            facade.GetMovieGatewayService().ReadAll();
             return View(movies);
          
         }
@@ -28,8 +29,8 @@ namespace MovieStoreUI.Controllers
         // GET: Movies/Details/5
         public ActionResult Details(int id)
         {
-          
-            Movie movie = df._moviesRepository.Get(id);
+
+            facade.GetMovieGatewayService().Read(id);
             //Movie movie = db.Movies.Find(id);
             if (movie == null)
             {
@@ -53,7 +54,7 @@ namespace MovieStoreUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                df._moviesRepository.Add(movie);
+                facade.GetMovieGatewayService().Add(movie);
              
                 return RedirectToAction("Index");
             }
@@ -65,7 +66,7 @@ namespace MovieStoreUI.Controllers
         public ActionResult Edit(int id)
         {
 
-            Movie movie = df._moviesRepository.Get(id);
+            facade.GetMovieGatewayService().Read(id);
             if (movie == null)
             {
                 return HttpNotFound();
@@ -82,23 +83,23 @@ namespace MovieStoreUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                df._moviesRepository.Edit(movie);
+                facade.GetMovieGatewayService().Update(movie.id);
                 return RedirectToAction("Index");
             }
             return View(movie);
         }
 
-        // GET: Movies/Delete/5
-        //public ActionResult Delete(int id)
-        //{
+        GET: Movies/Delete/5
+        public ActionResult Delete(int id)
+        {
 
-        //    Movie movie = df._moviesRepository.Get(id);
-        //    if (movie == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(movie);
-        //}
+            facade.GetMovieGatewayService().Read(id);
+            if (movie == null)
+            {
+                return HttpNotFound();
+            }
+            return View(movie);
+        }
 
         // POST: Movies/Delete/5
         //[HttpPost, ActionName("Delete")]
@@ -106,13 +107,10 @@ namespace MovieStoreUI.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
+
+            facade.GetMovieGatewayService().Delete(id);
             
-            df._moviesRepository.Remove(id);
-            Movie movie = df._moviesRepository.Get(id);
-            if (movie == null)
-            {
-                TempData["message"] = string.Format("Was deleted");
-            }
+           
             return RedirectToAction("Index");
         }
 

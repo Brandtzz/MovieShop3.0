@@ -6,11 +6,11 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using MovieStoreAdminUI.Infrastructure.Binders;
 using MovieStoreDAL;
+using MovieStoreUserUI.Infrastructure.Binders;
 using MovieStoreUserUI.Models;
 
-namespace MovieStoreAdminUI
+namespace MovieStoreUserUI
 {
     public class MvcApplication : System.Web.HttpApplication
     {

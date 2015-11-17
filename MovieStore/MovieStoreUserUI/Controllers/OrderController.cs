@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MovieShopGateway;
 using MovieStoreDAL;
 using MovieStoreUserUI.Models;
 
-namespace MovieStoreAdminUI.Controllers
+namespace MovieStoreUserUI.Controllers
 {
     public class OrderController : Controller
     {
-        DALFacade _facade = new DALFacade();
+        Facade facade = new Facade();
         
         [HttpGet]
         public ActionResult Buy(ShoppingCart cart)
@@ -32,7 +33,7 @@ namespace MovieStoreAdminUI.Controllers
                 Date = DateTime.Now,
                 OrderLines = cart.orderLines
             };
-            _facade._orderRepository.Add(order);
+            facade.GetOrderGatewayService().Add(order);
             cart.CleanCart();
             return View("Confirmed");
         }

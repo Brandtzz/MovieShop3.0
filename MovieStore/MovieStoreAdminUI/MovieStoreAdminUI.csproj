@@ -205,9 +205,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MovieStoreDAL\MovieStoreDAL.csproj">
-      <Project>{93f41840-309d-445f-8010-81c1772a1432}</Project>
-      <Name>MovieStoreDAL</Name>
+    <ProjectReference Include="..\MovieShopGateway\MovieShopGateway.csproj">
+      <Project>{9546fd7b-345f-48a3-9f29-9d6d1ec8412e}</Project>
+      <Name>MovieShopGateway</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

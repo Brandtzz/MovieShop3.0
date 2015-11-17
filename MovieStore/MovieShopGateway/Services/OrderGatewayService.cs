@@ -15,7 +15,7 @@ namespace MovieShopGateway.Services
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
-                    client.GetAsync("http://localhost:4835/api/order/").Result;
+                    client.GetAsync("http://localhost:17883/api/Order/").Result;
                 return response.Content.ReadAsAsync<IEnumerable<Order>>().Result;
             }
         }
@@ -25,17 +25,17 @@ namespace MovieShopGateway.Services
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
-                    client.PostAsJsonAsync("http://localhost:4835/api/order/", order).Result;
+                    client.PostAsJsonAsync("http://localhost:17883/api/Order/", order).Result;
                 return response.Content.ReadAsAsync<Order>().Result;
             }
         }
 
-        public Order Delete(Order order)
+        public Order Delete(int id)
         {
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
-                    client.DeleteAsync("http://localhost:4835/api/order/").Result;
+                    client.DeleteAsync("http://localhost:17883/api/Order/" + id.ToString()).Result;
                 return response.Content.ReadAsAsync<Order>().Result;
             }
         }
@@ -44,7 +44,17 @@ namespace MovieShopGateway.Services
         {
             using (var client = new HttpClient())
             {
-                HttpResponseMessage response = client.PostAsJsonAsync("http://localhost:4835/api/order/", order).Result;
+                HttpResponseMessage response = client.PostAsJsonAsync("http://localhost:17883/api/Order/", order.Id).Result;
+                return response.Content.ReadAsAsync<Order>().Result;
+            }
+        }
+
+        public Order Read(int id)
+        {
+            using (var Client = new HttpClient())
+            {
+                HttpResponseMessage response =
+                    Client.GetAsync("http://localhost:17883/api/Order/" + id.ToString()).Result;
                 return response.Content.ReadAsAsync<Order>().Result;
             }
         }
