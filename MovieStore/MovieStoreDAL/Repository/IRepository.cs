@@ -12,7 +12,7 @@ namespace MovieStoreDAL
 
         T Get(int id);
 
-        void Add(T entity);
+        T Add(T entity);
 
         T Edit(T entity);
 

@@ -11,7 +11,7 @@ namespace MovieStoreDAL
     {
         private MovieStoreDbContext db = new MovieStoreDbContext();
 
-        public void Add(Order entity)
+        public Order Add(Order entity)
         {
             using (var db = new MovieStoreDbContext())
             {
@@ -27,6 +27,7 @@ namespace MovieStoreDAL
                 db.Orders.Add(entity);
                 db.SaveChanges();
             }
+            return null;
         }
 
         public Order Edit(Order entity)

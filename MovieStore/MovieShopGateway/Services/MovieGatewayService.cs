@@ -45,7 +45,8 @@ namespace MovieShopGateway.Services
         {
             using (var client = new HttpClient())
             {
-                HttpResponseMessage response = client.PostAsJsonAsync("http://localhost:9885/api/Movie/", movie.Id).Result;
+                HttpResponseMessage response = 
+                    client.PutAsJsonAsync("http://localhost:9885/api/Movie/", movie.Id).Result;
                 return response.Content.ReadAsAsync<Movie>().Result;
             }
         }

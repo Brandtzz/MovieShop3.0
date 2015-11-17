@@ -14,13 +14,15 @@ namespace MovieStoreDAL
 
 
 
-        public void Add(Movie entity)
+        public Movie Add(Movie entity)
         {
-            using (var db = new MovieStoreDbContext())
+            if (entity == null)
             {
-                db.Movies.Add(entity);
-                db.SaveChanges();
+                throw  new ArgumentNullException();
             }
+            var entityAdded = db.Movies.Add(entity);
+            db.SaveChanges();
+            return entityAdded;
         }
 
 
@@ -33,7 +35,6 @@ namespace MovieStoreDAL
 
         public Movie Get(int id)
         {
-            
             return db.Movies.AsNoTracking().FirstOrDefault(a => a.Id == id);
         }
 

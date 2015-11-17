@@ -26,14 +26,14 @@ namespace MovieStoreRestApi.Controllers
             return movieConverter.Convert(movies);
         }
 
-        public MovieDto PostMovie(MovieDto movieDto)
+        public MovieDto PostMovie(Movie movie)
         {
-            return movieDto;
+            var movies = dalFacade._moviesRepository.Add(movie);
+            return movieConverter.Convert(movies);
         }
 
         public MovieDto PutMovie(Movie movie)
         {
-            
             var movies = dalFacade._moviesRepository.Edit(movie);
             return movieConverter.Convert(movies);
         }
