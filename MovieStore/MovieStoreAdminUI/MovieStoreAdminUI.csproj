@@ -185,7 +185,6 @@
     <Content Include="Views\Movies\Delete.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Movies\Edit.cshtml" />
-    <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\Create.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
@@ -195,6 +194,7 @@
     <Content Include="Views\Orders\Delete.cshtml" />
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Movies\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -208,6 +208,10 @@
     <ProjectReference Include="..\MovieShopGateway\MovieShopGateway.csproj">
       <Project>{9546fd7b-345f-48a3-9f29-9d6d1ec8412e}</Project>
       <Name>MovieShopGateway</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MovieStoreDAL\MovieStoreDAL.csproj">
+      <Project>{93F41840-309D-445F-8010-81C1772A1432}</Project>
+      <Name>MovieStoreDAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

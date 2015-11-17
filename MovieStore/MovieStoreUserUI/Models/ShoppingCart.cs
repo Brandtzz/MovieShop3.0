@@ -14,7 +14,7 @@ namespace MovieStoreUserUI.Models
         OrderGatewayService orderGatewayService = new OrderGatewayService();
 
        public List<OrderLine> orderLines { get; set;  }
-       public Customer Customer { get; set; }
+       //public Customer Customer { get; set; }
        
        public void AddOrderLine(Movie movie, int amount)
         {

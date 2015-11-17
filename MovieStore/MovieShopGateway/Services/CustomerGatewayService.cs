@@ -9,53 +9,53 @@ using MovieStoreDAL;
 
 namespace MovieShopGateway.Services
 {
-    public class CustomerGatewayService
+    public class Customer
     {
-        public IEnumerable<CustomerGatewayService> ReadAll()
+        public IEnumerable<Customer> ReadAll()
         {
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
                     client.GetAsync("http://localhost:17883/api/Customer/").Result;
-                return response.Content.ReadAsAsync<IEnumerable<CustomerGatewayService>>().Result;
+                return response.Content.ReadAsAsync<IEnumerable<Customer>>().Result;
             }
         }
 
-        public CustomerGatewayService Add(CustomerGatewayService customer)
+        public Customer Add(Customer customer)
         {
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
                     client.PostAsJsonAsync("http://localhost:17883/api/Customer/", customer).Result;
-                return response.Content.ReadAsAsync<CustomerGatewayService>().Result;
+                return response.Content.ReadAsAsync<Customer>().Result;
             }
         }
 
-        public CustomerGatewayService Delete(int id)
+        public Customer Delete(int id)
         {
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
                     client.DeleteAsync("http://localhost:17883/api/Customer/" + id.ToString()).Result;
-                return response.Content.ReadAsAsync<CustomerGatewayService>().Result;
+                return response.Content.ReadAsAsync<Customer>().Result;
             }
         }
 
-        public CustomerGatewayService Update(Customer customer)
+        public Customer Update(MovieStoreDAL.Customer customer)
         {
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response = client.PostAsJsonAsync("http://localhost:17883/api/Customer/", customer.Id).Result;
-                return response.Content.ReadAsAsync<CustomerGatewayService>().Result;
+                return response.Content.ReadAsAsync<Customer>().Result;
             }
         }
 
-        public CustomerGatewayService Read(int id)
+        public Customer Read(int id)
         {
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response = client.GetAsync("http://localhost:17883/api/Customer/" + id.ToString()).Result;
-                return response.Content.ReadAsAsync<CustomerGatewayService>().Result;
+                return response.Content.ReadAsAsync<Customer>().Result;
             }
         }
     }

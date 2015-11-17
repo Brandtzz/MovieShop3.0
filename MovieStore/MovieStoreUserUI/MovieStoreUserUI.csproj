@@ -207,6 +207,10 @@
       <Project>{a38c1dd3-ed9a-4217-9928-a54d946c4592}</Project>
       <Name>MovieStoreAdminUI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MovieStoreDAL\MovieStoreDAL.csproj">
+      <Project>{93F41840-309D-445F-8010-81C1772A1432}</Project>
+      <Name>MovieStoreDAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

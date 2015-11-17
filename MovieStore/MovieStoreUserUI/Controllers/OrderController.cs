@@ -13,14 +13,14 @@ namespace MovieStoreUserUI.Controllers
     {
         Facade facade = new Facade();
         
-        [HttpGet]
-        public ActionResult Buy(ShoppingCart cart)
-        {
-            Customer customer = (Customer) TempData.Peek("customer");
-            cart.Customer = customer;
+        //[HttpGet]
+        //public ActionResult Buy(ShoppingCart cart)
+        //{
+        //    Customer customer = (Customer) TempData.Peek("customer");
+        //    cart.Customer = customer;
 
-            return View(cart);
-        }
+        //    return View(cart);
+        //}
         [HttpPost,ActionName("Buy")]
         
         public ActionResult BuyConfirmed(ShoppingCart cart)

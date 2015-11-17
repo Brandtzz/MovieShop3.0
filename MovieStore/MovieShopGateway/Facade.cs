@@ -14,9 +14,9 @@ namespace MovieShopGateway
             return new MovieGatewayService();
         }
 
-        public CustomerGatewayService GetCustomerGatewayService()
+        public Customer GetCustomerGatewayService()
         {
-            return new CustomerGatewayService();
+            return new Customer();
         }
 
         public OrderGatewayService GetOrderGatewayService()

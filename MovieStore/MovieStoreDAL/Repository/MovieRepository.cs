@@ -49,10 +49,13 @@ namespace MovieStoreDAL
 
         public Movie Remove(int id)
         {
-            var a = this.Get(id);
-            db.Movies.Remove(a);
+
+            Movie movie = db.Movies.FirstOrDefault(a => a.Id == id);
+        
+            db.Movies.Remove(movie);
             db.SaveChanges();
-            return a;
+            return movie;
+
         }
 
         

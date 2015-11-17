@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MovieShopGateway;
+using MovieStoreDAL;
 
 namespace MovieStoreUserUI.Controllers
 {
@@ -15,86 +16,86 @@ namespace MovieStoreUserUI.Controllers
         
             
 
-        // GET: Customers
-        public ActionResult Index()
-        {
-            IEnumerable<Customer> customer = facade.GetCustomerGatewayService().ReadAll();
-            return View(customer);
-        }
+        //// GET: Customers
+        //public ActionResult Index()
+        //{
+        //    IEnumerable<Customer> customer = facade.GetCustomerGatewayService().ReadAll();
+        //    return View(customer);
+        //}
 
-        // GET: Customers/Details/5
-        public ActionResult Details(int id)
-        {
-            var customer = facade.GetCustomerGatewayService().Read(id);
-            return View(customer);
-        }
+        //// GET: Customers/Details/5
+        //public ActionResult Details(int id)
+        //{
+        //    Customer customer = facade.GetCustomerGatewayService().Read(id);
+        //    return View(customer);
+        //}
 
-        // GET: Customers/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //// GET: Customers/Create
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
-        // POST: Customers/Create
-        [HttpPost]
-        public ActionResult Create([Bind(Include = "FirstName,LastName,Address,Email,EmailConfirm")]Customer customer)
-        {
-            try
-            {
-                facade.GetCustomerGatewayService().Add(customer);
-                
+        //    // POST: Customers/Create
+        //    [HttpPost]
+        //    public ActionResult Create([Bind(Include = "FirstName,LastName,Address,Email,EmailConfirm")]Customer customer)
+        //    {
+        //        try
+        //        {
+        //            facade.GetCustomerGatewayService().Add(customer);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View(customer);
-            }
-        }
 
-        // GET: Customers/Edit/5
-        public ActionResult Edit(int id)
-        {
-            facade.GetCustomerGatewayService().Read(id);
-            return View(customer);
-        }
+        //            return RedirectToAction("Index");
+        //        }
+        //        catch
+        //        {
+        //            return View(customer);
+        //        }
+        //    }
 
-        // POST: Customers/Edit/5
-        [HttpPost]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Address,Email, EmailConfirm")]Customer customer)
-        {
-            try
-            {
-                facade.GetCustomerGatewayService().Update(customer.id);
+        //    // GET: Customers/Edit/5
+        //    public ActionResult Edit(int id)
+        //    {
+        //        facade.GetCustomerGatewayService().Read(id);
+        //        return System.Web.UI.WebControls.View(customer);
+        //    }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View(customer);
-            }
-        }
+        //    // POST: Customers/Edit/5
+        //    [HttpPost]
+        //    public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,Address,Email, EmailConfirm")]Customer customer)
+        //    {
+        //        try
+        //        {
+        //            facade.GetCustomerGatewayService().Update(customer.id);
 
-        // GET: Customers/Delete/5
-        public ActionResult Delete(int id)
-        {
-            facade.GetCustomerGatewayService().Read(id);
-            return View(customer);
-        }
+        //            return RedirectToAction("Index");
+        //        }
+        //        catch
+        //        {
+        //            return View(customer);
+        //        }
+        //    }
 
-        // POST: Customers/Delete/
-        [HttpPost,ActionName("Delete")]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            try
-            {
-                facade.GetCustomerGatewayService().Delete(id);
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //    // GET: Customers/Delete/5
+        //    public ActionResult Delete(int id)
+        //    {
+        //        facade.GetCustomerGatewayService().Read(id);
+        //        return System.Web.UI.WebControls.View(customer);
+        //    }
+
+        //    // POST: Customers/Delete/
+        //    [HttpPost,ActionName("Delete")]
+        //    public ActionResult DeleteConfirmed(int id)
+        //    {
+        //        try
+        //        {
+        //            facade.GetCustomerGatewayService().Delete(id);
+        //            return RedirectToAction("Index");
+        //        }
+        //        catch
+        //        {
+        //            return View();
+        //        }
+        //    }
     }
 }

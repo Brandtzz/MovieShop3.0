@@ -22,7 +22,7 @@ namespace MovieStoreUserUI.Controllers
         // GET: Movie/Details/5
         public ActionResult Details(int id)
         {
-            facade.GetMovieGatewayService().Read(id);
+            Movie movie = facade.GetMovieGatewayService().Read(id);
             return View(movie);
         }
 
