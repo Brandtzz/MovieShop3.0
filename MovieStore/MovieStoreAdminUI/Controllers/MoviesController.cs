@@ -94,7 +94,7 @@ namespace MovieStoreUI.Controllers
         public ActionResult Delete(int id)
         {
 
-            Movie movie = facade.GetMovieGatewayService().Read(id);
+            Movie movie = facade.GetMovieGatewayService().Delete(id);
             if (movie == null)
             {
                 return HttpNotFound();
@@ -102,7 +102,7 @@ namespace MovieStoreUI.Controllers
             return View(movie);
         }
 
-        // POST: Movies/Delete/5
+        //POST: Movies/Delete/5
         //[HttpPost, ActionName("Delete")]
         //[ValidateAntiForgeryToken]
         [HttpPost]
