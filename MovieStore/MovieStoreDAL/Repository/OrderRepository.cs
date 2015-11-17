@@ -49,9 +49,11 @@ namespace MovieStoreDAL
 
         public Order Remove(int id)
         {
-            var a = this.Get(id);
-            db.Orders.Remove(a);
-            return a;
+            Order order = db.Orders.FirstOrDefault(a => a.Id == id);
+
+            db.Orders.Remove(order);
+            db.SaveChanges();
+            return order;
         }
     }
 }

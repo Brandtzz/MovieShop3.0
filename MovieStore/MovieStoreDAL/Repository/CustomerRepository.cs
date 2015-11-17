@@ -51,10 +51,9 @@ namespace MovieStoreDAL
 
         public Customer Remove(int id)
         {
-            var customer = this.Get(id);
-            Address address = customer.Address;
+            Customer customer = db.Customers.FirstOrDefault(a => a.Id == id);
+
             db.Customers.Remove(customer);
-            db.Addresses.Remove(address);
             db.SaveChanges();
             return customer;
         }

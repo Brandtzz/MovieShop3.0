@@ -16,7 +16,7 @@ namespace MovieShopGateway.Services
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
-                    client.GetAsync("http://localhost:17883/api/Customer/").Result;
+                    client.GetAsync("http://localhost:9885/api/Customer/").Result;
                 return response.Content.ReadAsAsync<IEnumerable<Customer>>().Result;
             }
         }
@@ -26,7 +26,7 @@ namespace MovieShopGateway.Services
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
-                    client.PostAsJsonAsync("http://localhost:17883/api/Customer/", customer).Result;
+                    client.PostAsJsonAsync("http://localhost:9885/api/Customer/", customer).Result;
                 return response.Content.ReadAsAsync<Customer>().Result;
             }
         }
@@ -36,7 +36,7 @@ namespace MovieShopGateway.Services
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
-                    client.DeleteAsync("http://localhost:17883/api/Customer/" + id.ToString()).Result;
+                    client.DeleteAsync("http://localhost:9885/api/Customer/" + id.ToString()).Result;
                 return response.Content.ReadAsAsync<Customer>().Result;
             }
         }
@@ -45,7 +45,7 @@ namespace MovieShopGateway.Services
         {
             using (var client = new HttpClient())
             {
-                HttpResponseMessage response = client.PostAsJsonAsync("http://localhost:17883/api/Customer/", customer.Id).Result;
+                HttpResponseMessage response = client.PostAsJsonAsync("http://localhost:9885/api/Customer/", customer.Id).Result;
                 return response.Content.ReadAsAsync<Customer>().Result;
             }
         }
@@ -54,7 +54,7 @@ namespace MovieShopGateway.Services
         {
             using (var client = new HttpClient())
             {
-                HttpResponseMessage response = client.GetAsync("http://localhost:17883/api/Customer/" + id.ToString()).Result;
+                HttpResponseMessage response = client.GetAsync("http://localhost:9885/api/Customer/" + id.ToString()).Result;
                 return response.Content.ReadAsAsync<Customer>().Result;
             }
         }

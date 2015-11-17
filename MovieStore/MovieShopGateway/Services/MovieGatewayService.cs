@@ -26,7 +26,7 @@ namespace MovieShopGateway.Services
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
-                    client.PostAsJsonAsync("http://localhost:17883/api/Movie/", movie).Result;
+                    client.PostAsJsonAsync("http://localhost:9885/api/Movie/", movie).Result;
                 return response.Content.ReadAsAsync<Movie>().Result;
             }
         }
@@ -36,7 +36,7 @@ namespace MovieShopGateway.Services
             using (var client = new HttpClient())
             {
                 HttpResponseMessage response =
-                    client.DeleteAsync("http://localhost:17883/api/Movie/" + id.ToString()).Result;
+                    client.DeleteAsync("http://localhost:9885/api/Movie/" + id.ToString()).Result;
                 return response.Content.ReadAsAsync<Movie>().Result;
             }
         }
@@ -45,7 +45,7 @@ namespace MovieShopGateway.Services
         {
             using (var client = new HttpClient())
             {
-                HttpResponseMessage response = client.PostAsJsonAsync("http://localhost:17883/api/Movie/", movie.Id).Result;
+                HttpResponseMessage response = client.PostAsJsonAsync("http://localhost:9885/api/Movie/", movie.Id).Result;
                 return response.Content.ReadAsAsync<Movie>().Result;
             }
         }
@@ -55,7 +55,7 @@ namespace MovieShopGateway.Services
             using (var Client = new HttpClient())
             {
                 HttpResponseMessage response =
-                    Client.GetAsync("http://localhost:17883/api/Movie/" + id.ToString()).Result;
+                    Client.GetAsync("http://localhost:9885/api/Movie/" + id.ToString()).Result;
                 return response.Content.ReadAsAsync<Movie>().Result;
             }
         }
