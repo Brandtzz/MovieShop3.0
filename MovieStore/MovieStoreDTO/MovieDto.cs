@@ -7,14 +7,15 @@ using System.Threading.Tasks;
 
 namespace MovieStoreDTO
 {
-    class MovieDto
+    [DataContract(IsReference = true)]
+    public class MovieDto
     {
         [DataMember]
         public int Id { get; set; }
         [DataMember]
         public string Title { get; set; }
         [DataMember]
-        public int Price { get; set; }
+        public double Price { get; set; }
         [DataMember]
         public DateTime Year { get; set; }
         [DataMember]

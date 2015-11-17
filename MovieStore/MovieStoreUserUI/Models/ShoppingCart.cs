@@ -3,12 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MovieShopGateway;
+using MovieShopGateway.Services;
 
- 
+
 namespace MovieStoreUserUI.Models
 {
     public class ShoppingCart
     {
+        OrderGatewayService orderGatewayService = new OrderGatewayService();
+
        public List<OrderLine> orderLines { get; set;  }
        public Customer Customer { get; set; }
        

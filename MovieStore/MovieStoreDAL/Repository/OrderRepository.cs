@@ -29,10 +29,12 @@ namespace MovieStoreDAL
             }
         }
 
-        public void Edit(Order entity)
+        public Order Edit(Order entity)
         {
             db.Entry(entity).State = EntityState.Modified;
             db.SaveChanges();
+            return entity;
+
         }
 
         public Order Get(int id)
@@ -45,10 +47,11 @@ namespace MovieStoreDAL
             return db.Orders;
         }
 
-        public void Remove(int id)
+        public Order Remove(int id)
         {
             var a = this.Get(id);
             db.Orders.Remove(a);
+            return a;
         }
     }
 }

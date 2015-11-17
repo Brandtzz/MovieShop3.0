@@ -14,9 +14,9 @@ namespace MovieStoreDAL
 
         void Add(T entity);
 
-        void Edit(T entity);
+        T Edit(T entity);
 
-        void Remove(int id);
+        T Remove(int id);
 
     }
 }

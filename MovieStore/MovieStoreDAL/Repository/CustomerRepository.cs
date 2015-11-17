@@ -23,7 +23,7 @@ namespace MovieStoreDAL
             }
         }
 
-        public void Edit(Customer entity)
+        public Customer Edit(Customer entity)
         {
             db.Entry(entity).State = EntityState.Modified;
             var customerAddress = (from a in db.Addresses
@@ -36,6 +36,7 @@ namespace MovieStoreDAL
             db.Entry(customerAddress).State = EntityState.Modified;
 
             db.SaveChanges();
+            return entity;
         }
 
         public Customer Get(int id)
@@ -48,13 +49,14 @@ namespace MovieStoreDAL
             return db.Customers.AsNoTracking().ToList();
         }
 
-        public void Remove(int id)
+        public Customer Remove(int id)
         {
             var customer = this.Get(id);
             Address address = customer.Address;
             db.Customers.Remove(customer);
             db.Addresses.Remove(address);
             db.SaveChanges();
+            return customer;
         }
     }
 }

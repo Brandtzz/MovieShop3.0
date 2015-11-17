@@ -24,15 +24,16 @@ namespace MovieStoreDAL
         }
 
 
-        public void Edit(Movie entity)
+        public Movie Edit(Movie entity)
         {
             db.Entry(entity).State = EntityState.Modified;
             db.SaveChanges();
+            return entity;
         }
 
         public Movie Get(int id)
         {
-           
+            
             return db.Movies.AsNoTracking().FirstOrDefault(a => a.Id == id);
         }
 
@@ -46,11 +47,12 @@ namespace MovieStoreDAL
             }
         }
 
-        public void Remove(int id)
+        public Movie Remove(int id)
         {
             var a = this.Get(id);
             db.Movies.Remove(a);
             db.SaveChanges();
+            return a;
         }
 
         
